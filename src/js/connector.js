@@ -2,10 +2,12 @@ var GRAY_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4b
 
 var onBtnClick = function (t, opts) {
   return t.card("url").then(function (card) {
-    var url = JSON.stringify(card, null, 2);
-    console.log(url);
-    console.log(url.value);
-    navigator.clipboard.writeText(url.value).then(function (c) {
+    console.log(card);
+    var str = JSON.stringify(card, null, 2);
+    console.log(str);
+    var parsedURL = JSON.parse(str);
+    console.log(parsedURL.url);
+    navigator.clipboard.writeText(parsedURL.url).then(function (c) {
       console.log(c);
     }, function (err) {
       console.error('Async: Could not copy text: ', err);
