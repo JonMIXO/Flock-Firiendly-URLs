@@ -14,7 +14,7 @@ var onBtnClick = function (t, opts) {
         text: parsedURL.url,
         callback: function (t, opts) {
           var url = this.items.text;
-          url.select();
+          url.value.select();
           document.execCommand("copy");
         }
       }]
