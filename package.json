@@ -13,6 +13,6 @@
     "parcel-bundler": "^1.12.4"
   },
   "dependencies": {
-    "clipboard-copy": "^4.0.1"
+    "clipboard-polyfill": "^3.0.2"
   }
 }
