@@ -13,7 +13,7 @@ var onBtnClick = function (t, opts) {
       items: [{
         text: parsedURL.url,
         callback: function (t, opts) {
-          this.text.select();
+          t.text.select();
           document.execCommand("copy");
         }
       }]
