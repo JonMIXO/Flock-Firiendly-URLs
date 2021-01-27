@@ -1,0 +1,15 @@
+{
+  "name": "flock-friendly-urls",
+  "version": "1.0.0",
+  "description": "A Trello integration for Flock friendly URLs",
+  "main": "index.js",
+  "repository": "https://github.com/JonMIXO/Flock-Firiendly-URLs.git",
+  "author": "Jon Herbert",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build src/html/*.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
