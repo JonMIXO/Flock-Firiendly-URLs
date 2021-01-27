@@ -2,21 +2,15 @@ var GRAY_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4b
 
 var onBtnClick = function (t, opts) {
   return t.card("url").then(function (card) {
-    console.log(card);
     var str = JSON.stringify(card, null, 2);
-    console.log(str);
     var parsedURL = JSON.parse(str);
-    console.log(parsedURL.url);
-
+    const url = new URL(parsedURL.url);
+    console.log(url);
+    console.log(url.pathname);
     return t.popup({
       title: "Flock URL",
       items: [{
-        text: parsedURL.url,
-        callback: function (t, opts) {
-          var url = this.items.text;
-          url.value.select();
-          document.execCommand("copy");
-        }
+        text: "https://a.tlkt.uk/" + url.pathname
       }]
     });
   }).catch(error => console.log(error));
