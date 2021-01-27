@@ -2,8 +2,8 @@ var GRAY_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4b
 
 var onBtnClick = function (t, opts) {
   return t.card("url").then(function (card) {
-    console.log(JSON.stringify(card, null, 2));
-    navigator.clipboard.writeText(card.value).then(function (c) {
+    var url = JSON.stringify(card, null, 2);
+    navigator.clipboard.writeText(url.value).then(function (c) {
       console.log(c);
     }, function (err) {
       console.error('Async: Could not copy text: ', err);
