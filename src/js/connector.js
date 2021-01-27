@@ -1,3 +1,5 @@
+import Shortener from "@studiohyperdrive/shortener";
+
 var GRAY_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg';
 
 var onBtnClick = function (t, opts) {
@@ -7,14 +9,13 @@ var onBtnClick = function (t, opts) {
     console.log(str);
     var parsedURL = JSON.parse(str);
     console.log(parsedURL.url);
-    clipboard.writeText(parsedURL.url).then(
-      function () {
-        console.log("success!");
-      },
-      function () {
-        console.log("error!");
-      }
-    );
+    const shortener = new Shortener({
+      target: "https://mixo.trello.com",
+      length: 6,
+      alphabet: "alphanumeric"
+    })
+    const url = shortener.shorten(parsedURL.url);
+    console.log(url);
   });
 };
 

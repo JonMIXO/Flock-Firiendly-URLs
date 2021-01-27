@@ -13,6 +13,6 @@
     "parcel-bundler": "^1.12.4"
   },
   "dependencies": {
-    "clipboard-polyfill": "^3.0.2"
+    "@studiohyperdrive/shortener": "^1.0.2"
   }
 }
