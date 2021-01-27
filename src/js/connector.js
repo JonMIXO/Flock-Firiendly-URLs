@@ -7,10 +7,15 @@ var onBtnClick = function (t, opts) {
     console.log(str);
     var parsedURL = JSON.parse(str);
     console.log(parsedURL.url);
+
     return t.popup({
       title: "Flock URL",
       items: [{
-        text: parsedURL.url
+        text: parsedURL.url,
+        callback: function (t, opts) {
+          this.text.select();
+          document.execCommand("copy");
+        }
       }]
     });
   }).catch(error => console.log(error));
