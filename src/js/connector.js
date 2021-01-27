@@ -10,8 +10,9 @@ var onBtnClick = function (t, opts) {
   // }).catch(error => console.log(error));
   return t.popup({
     title: "Flock URL",
-    url: location.href.toString(),
-    text: location.href.toString()
+    items: [{
+      text: location.href.toString()
+    }]
   });
 };
 
