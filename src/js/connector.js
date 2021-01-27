@@ -7,14 +7,8 @@ var onBtnClick = function (t, opts) {
     console.log(str);
     var parsedURL = JSON.parse(str);
     console.log(parsedURL.url);
-    let url = [new ClipboardItem({
-      "text/plain": parsedURL.url
-    })];
-    navigator.clipboard.writeText(url).then(function () {
-      console.log(url);
-    }, function (err) {
-      console.error('Async: Could not copy text: ', err);
-    });
+    const copy = require('clipboard-copy');
+    copy(parsedURL.url);
   });
 };
 
