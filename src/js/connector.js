@@ -1,21 +1,20 @@
 var GRAY_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg';
 
 var onBtnClick = function (t, opts) {
-  // return t.card("url").then(function (card) {
-  //   console.log(card);
-  //   var str = JSON.stringify(card, null, 2);
-  //   console.log(str);
-  //   var parsedURL = JSON.parse(str);
-  //   console.log(parsedURL.url);
-  // }).catch(error => console.log(error));
-  return t.popup({
-    title: "Flock URL",
-    items: [{
-      text: location.href.toString()
-    }]
-  });
+  return t.card("url").then(function (card) {
+    console.log(card);
+    var str = JSON.stringify(card, null, 2);
+    console.log(str);
+    var parsedURL = JSON.parse(str);
+    console.log(parsedURL.url);
+    return t.popup({
+      title: "Flock URL",
+      items: [{
+        text: parsedURL.url
+      }]
+    });
+  }).catch(error => console.log(error));
 };
-
 
 window.TrelloPowerUp.initialize({
   'card-buttons': function (t, opts) {
