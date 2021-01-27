@@ -1,11 +1,12 @@
 var GRAY_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg';
 
 var onBtnClick = function (t, opts) {
-  console.log('URL: ' + t.card('url'));
-  navigator.clipboard.writeText(t.card('url')).then(function () {
-    console.error('Copied: ', t.card('url'));
-  }, function (err) {
-    console.error('Async: Could not copy text: ', err);
+  return t.card("url").then(function (card) {
+    navigator.clipboard.writeText(card).then(function () {
+      console.log(JSON.stringify(card, null, 2));
+    }, function (err) {
+      console.error('Async: Could not copy text: ', err);
+    });
   });
 };
 
