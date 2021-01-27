@@ -8,7 +8,7 @@ var onBtnClick = function (t, opts) {
     var parsedURL = JSON.parse(str);
     console.log(parsedURL.url);
     copyToClipboard(parsedURL.url);
-  });
+  }).catch(error => console.log(error));
 };
 
 function copyToClipboard(text) {
