@@ -1,5 +1,3 @@
-import Shortener from "@studiohyperdrive/shortener";
-
 var GRAY_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg';
 
 var onBtnClick = function (t, opts) {
@@ -9,15 +7,30 @@ var onBtnClick = function (t, opts) {
     console.log(str);
     var parsedURL = JSON.parse(str);
     console.log(parsedURL.url);
-    const shortener = new Shortener({
-      target: "https://mixo.trello.com",
-      length: 6,
-      alphabet: "alphanumeric"
-    })
-    const url = shortener.shorten(parsedURL.url);
-    console.log(url);
+    copyToClipboard(parsedURL.url);
   });
 };
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) { // default: modern asynchronous API
+    return navigator.clipboard.writeText(text);
+  } else if (window.clipboardData && window.clipboardData.setData) { // for IE11
+    window.clipboardData.setData('Text', text);
+    return Promise.resolve();
+  } else {
+    // workaround: create dummy input
+    const input = h('input', {
+      type: 'text'
+    });
+    input.value = text;
+    document.body.append(input);
+    input.focus();
+    input.select();
+    document.execCommand('copy');
+    input.remove();
+    return Promise.resolve();
+  }
+}
 
 window.TrelloPowerUp.initialize({
   'card-buttons': function (t, opts) {
