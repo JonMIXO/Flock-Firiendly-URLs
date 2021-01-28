@@ -8,7 +8,7 @@ var onBtnClick = function (t, opts) {
     console.log(url);
     console.log(url.pathname);
     return t.popup({
-      title: "Flock URL",
+      title: "Flock Link",
       items: [{
         text: "https://a.tlkt.uk/" + url.pathname
       }]
@@ -22,7 +22,7 @@ window.TrelloPowerUp.initialize({
       // usually you will provide a callback function to be run on button click
       // we recommend that you use a popup on click generally
       icon: GRAY_ICON, // don't use a colored icon here
-      text: 'Flock Firendly URL',
+      text: 'Flock Link',
       callback: onBtnClick,
       condition: 'edit'
     }]
