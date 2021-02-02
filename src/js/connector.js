@@ -24,6 +24,8 @@ var colorChange = function () {
 
 window.TrelloPowerUp.initialize({
   'card-buttons': function (t, opts) {
+    console.log(t);
+    console.log(opts);
     return [{
       icon: GRAY_ICON,
       text: 'Flock Link',
@@ -31,8 +33,6 @@ window.TrelloPowerUp.initialize({
       condition: 'edit',
       backgroundColor: '#263340',
       color: '#ffffff'
-    }, {
-      callback: colorChange
     }];
   }
 });
