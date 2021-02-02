@@ -5,8 +5,6 @@ var onBtnClick = function (t, opts) {
     var str = JSON.stringify(card, null, 2);
     var parsedURL = JSON.parse(str);
     const url = new URL(parsedURL.url);
-    console.log(url);
-    console.log(url.pathname);
     return t.popup({
       title: "Flock Link",
       items: [{
@@ -21,6 +19,7 @@ var colorChange = function () {
   btn.style.backgroundColor = '#263340';
   btn.style.color = '#ffffff';
 }
+
 window.addEventListener('load', function () {
   colorChange();
 });
