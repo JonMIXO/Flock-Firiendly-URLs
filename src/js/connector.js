@@ -15,17 +15,19 @@ var onBtnClick = function (t, opts) {
     });
   }).catch(error => console.log(error));
 };
+var colorChange = function (t, opts) {
+  var btn = document.querySelector('.button-link[title="Flock Link"]')
+  btn.style.backgroundColor = '#263340';
+}
 
 window.TrelloPowerUp.initialize({
   'card-buttons': function (t, opts) {
-    var btn = document.querySelector('.button-link[title="Flock Link"]')
-    btn.style.backgroundColor = '#263340';
     return [{
       // usually you will provide a callback function to be run on button click
       // we recommend that you use a popup on click generally
       icon: GRAY_ICON, // don't use a colored icon here
       text: 'Flock Link',
-      callback: onBtnClick,
+      callback: [colorChange, onBtnClick],
       condition: 'edit'
     }]
   }
