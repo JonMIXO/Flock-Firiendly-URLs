@@ -15,9 +15,11 @@ var onBtnClick = function (t, opts) {
 };
 
 var colorChange = function () {
+  console.log('reached');
   var btn = document.querySelector('.button-link[title="Flock Link"]')
   btn.style.backgroundColor = '#263340';
   btn.style.color = '#ffffff';
+  console.log(btn);
 }
 
 window.TrelloPowerUp.initialize({
