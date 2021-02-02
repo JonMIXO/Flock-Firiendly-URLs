@@ -14,14 +14,6 @@ var onBtnClick = function (t, opts) {
   }).catch(error => console.log(error));
 };
 
-var colorChange = function () {
-  console.log('reached');
-  var btn = document.querySelector('.button-link[title="Flock Link"]')
-  btn.style.backgroundColor = '#263340';
-  btn.style.color = '#ffffff';
-  console.log(btn);
-}
-
 window.TrelloPowerUp.initialize({
   'card-buttons': function (t, opts) {
     console.log(t);
@@ -33,6 +25,11 @@ window.TrelloPowerUp.initialize({
       condition: 'edit',
       backgroundColor: '#263340',
       color: '#ffffff'
+    }, () => {
+      console.log('reached');
+      var btn = document.querySelector('.button-link[title="Flock Link"]')
+      btn.style.backgroundColor = '#263340';
+      btn.style.color = '#ffffff';
     }];
   }
 });
