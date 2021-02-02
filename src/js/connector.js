@@ -23,13 +23,12 @@ var colorChange = function () {
 window.TrelloPowerUp.initialize({
   'card-buttons': function (t, opts) {
     return [{
-      // usually you will provide a callback function to be run on button click
-      // we recommend that you use a popup on click generally
-      icon: GRAY_ICON, // don't use a colored icon here
+      icon: GRAY_ICON,
       text: 'Flock Link',
       callback: onBtnClick,
-      condition: 'edit'
+      condition: 'edit',
+      backgroundColor: '#263340',
+      color: '#ffffff'
     }]
   }
-
-}, colorChange);
+});
