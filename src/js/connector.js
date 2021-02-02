@@ -32,4 +32,4 @@ window.TrelloPowerUp.initialize({
     }]
   }
 
-}, colorChange());
+}, colorChange);
