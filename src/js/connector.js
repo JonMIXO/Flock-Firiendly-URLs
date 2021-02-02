@@ -21,6 +21,9 @@ var colorChange = function () {
   btn.style.backgroundColor = '#263340';
   btn.style.color = '#ffffff';
 }
+window.addEventListener('load', function () {
+  colorChange();
+});
 
 window.TrelloPowerUp.initialize({
   'card-buttons': function (t, opts) {
@@ -32,6 +35,5 @@ window.TrelloPowerUp.initialize({
       callback: onBtnClick,
       condition: 'edit'
     }]
-  },
-  colorChange();
+  }
 });
