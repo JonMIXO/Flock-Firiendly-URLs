@@ -15,9 +15,11 @@ var onBtnClick = function (t, opts) {
     });
   }).catch(error => console.log(error));
 };
-var colorChange = function (t, opts) {
+
+var colorChange = function () {
   var btn = document.querySelector('.button-link[title="Flock Link"]')
   btn.style.backgroundColor = '#263340';
+  btn.style.color = '#ffffff';
 }
 
 window.TrelloPowerUp.initialize({
@@ -27,8 +29,9 @@ window.TrelloPowerUp.initialize({
       // we recommend that you use a popup on click generally
       icon: GRAY_ICON, // don't use a colored icon here
       text: 'Flock Link',
-      callback: [colorChange, onBtnClick],
+      callback: onBtnClick,
       condition: 'edit'
     }]
-  }
+  },
+  colorChange();
 });
