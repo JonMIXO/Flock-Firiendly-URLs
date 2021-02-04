@@ -8,6 +8,8 @@ var onBtnClick = function (t, opts) {
     var shortUrl = "https://a.tlkt.uk" + url.pathname
     var permissionsObj = navigator.permissions.query({
       name: 'clipboard-write'
+    }).then(function (permissionStatus) {
+      console.log('clipboard permission state is ', permissionStatus.state);
     });
     console.log(permissionsObj);
     updateClipboard(shortUrl);
