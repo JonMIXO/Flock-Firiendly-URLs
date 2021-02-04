@@ -6,7 +6,7 @@ var onBtnClick = function (t, opts) {
     var parsedURL = JSON.parse(str);
     const url = new URL(parsedURL.url);
     var shortUrl = "https://a.tlkt.uk" + url.pathname
-    var permissionsObj = globalObj.navigator.permissions
+    var permissionsObj = navigator.permissions
     console.log(permissionsObj);
     updateClipboard(shortUrl);
     return t.popup({
