@@ -5,6 +5,8 @@ var onBtnClick = function (t, opts) {
     var str = JSON.stringify(card, null, 2);
     var parsedURL = JSON.parse(str);
     const url = new URL(parsedURL.url);
+    var shortUrl = "https://a.tlkt.uk/" + url.pathname
+    updateClipboard(shortUrl);
     return t.popup({
       title: "Flock Link",
       items: [{
@@ -14,10 +16,16 @@ var onBtnClick = function (t, opts) {
   }).catch(error => console.log(error));
 };
 
+function updateClipboard(newClip) {
+  navigator.clipboard.writeText(newClip).then(function () {
+    console.log('Success: ' + newClip);
+  }, function () {
+    console.log('Failed to copy');
+  });
+} +
+
 window.TrelloPowerUp.initialize({
   'card-buttons': function (t, opts) {
-    console.log(t);
-    console.log(opts);
     return [{
       icon: GRAY_ICON,
       text: 'Flock Link',
