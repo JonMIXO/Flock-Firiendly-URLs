@@ -17,6 +17,7 @@ var onBtnClick = function (t, opts) {
 };
 
 function updateClipboard(newClip) {
+  console.log('Clip: ' + newClip);
   navigator.clipboard.writeText(newClip).then(function () {
     console.log('Success: ' + newClip);
   }, function () {
