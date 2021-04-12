@@ -6,30 +6,24 @@ var onBtnClick = function (t, opts) {
     var parsedURL = JSON.parse(str);
     const url = new URL(parsedURL.url);
     var shortUrl = "https://a.tlkt.uk" + url.pathname
-    var permissionsObj = navigator.permissions.query({
-      name: 'clipboard-write'
-    }).then(function (permissionStatus) {
-      console.log('clipboard permission state is ', permissionStatus.state);
-    });
-    console.log(permissionsObj);
-    updateClipboard(shortUrl);
+    // updateClipboard(shortUrl);
     return t.popup({
       title: "Flock Link",
       items: [{
-        text: "https://a.tlkt.uk" + url.pathname
+        text: shortUrl
       }]
     });
   }).catch(error => console.log(error));
 };
 
-function updateClipboard(newClip) {
-  console.log('Clip: ' + newClip);
-  navigator.clipboard.writeText(newClip).then(function () {
-    console.log('Success: ' + newClip);
-  }, function () {
-    console.log('Failed to copy');
-  });
-} +
+// function updateClipboard(newClip) {
+//   console.log('Clip: ' + newClip);
+//   navigator.clipboard.writeText(newClip).then(function () {
+//     console.log('Success: ' + newClip);
+//   }, function () {
+//     console.log('Failed to copy');
+//   });
+// }
 
 window.TrelloPowerUp.initialize({
   'card-buttons': function (t, opts) {
