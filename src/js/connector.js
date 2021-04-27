@@ -6,24 +6,24 @@ var onBtnClick = function (t, opts) {
     var parsedURL = JSON.parse(str);
     const url = new URL(parsedURL.url);
     var shortUrl = "https://a.tlkt.uk" + url.pathname
+    var textbox = document.createElement("input");
+    textbox.setAttribute('type', 'text');
+    textbox.setAttribute('value', shortUrl);
     return t.popup({
       title: "Flock Link",
       items: [{
         text: 'ShortURL',
         callback: function (t, opts) {
-          replaceWithTB(shortUrl)
+          replaceWithTB(textbox)
         }
       }]
     });
   }).catch(error => console.log(error));
 };
 
-function replaceWithTB(shortUrl) {
+function replaceWithTB(textbox) {
   console.log('reached func');
-  var textbox = document.createElement("input");
-  textbox.setAttribute('type', 'text');
-  textbox.setAttribute('value', shortUrl);
-  var popup = document.querySelector('.selected')
+  var popup = t.popup.querySelector('.selected')
   console.log(popup);
   popup.appendChild(textbox);
 }
