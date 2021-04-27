@@ -32,7 +32,7 @@ function createInput(shortUrl) {
   console.log(shortUrl + ' On Popup')
   var textbox = document.querySelector(".ffurl");
   console.log(textbox);
-  textbox.setAttribute('defaultValue', shortUrl.toString());
+  textbox.setAttribute('value', shortUrl.toString());
   console.log(textbox.value);
 }
 window.addEventListener('load', (event) => {
