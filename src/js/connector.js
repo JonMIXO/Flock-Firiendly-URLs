@@ -19,7 +19,6 @@ var onBtnClick = function (t, opts) {
     var parsedURL = JSON.parse(str);
     const url = new URL(parsedURL.url);
     var shortUrl = "https://a.tlkt.uk" + url.pathname
-    console.log(shortUrl + ' onClick')
     return t.popup({
       title: "Flock Link",
       url: './index.html',
@@ -29,7 +28,7 @@ var onBtnClick = function (t, opts) {
         var ptag = document.querySelector(".sUrl");
         ptag.innerHTML += shortUrl;
         console.log(textbox);
-        textbox.setAttribute('value', shortUrl.toString());
+        textbox.value = shortUrl;
         console.log(textbox.value);
       }
     });
