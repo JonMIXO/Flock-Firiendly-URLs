@@ -6,26 +6,27 @@ var onBtnClick = function (t, opts) {
     var parsedURL = JSON.parse(str);
     const url = new URL(parsedURL.url);
     var shortUrl = "https://a.tlkt.uk" + url.pathname
-
     return t.popup({
       title: "Flock Link",
       items: [{
-        text: t.safe(shortUrl),
-        callback: copyToClipboard(shortUrl)
+        text: replaceWithP(shortUrl)
       }]
     });
   }).catch(error => console.log(error));
 };
 
-function copyToClipboard(element) {
-  vartemp = ("<input>").document.getElementsByTagName('body').append(temp).temp.val((element).text()).select().document.execCommand("copy").temp.remove();
-}
-
-// function replaceWithP () {
-//   var textbox = document.createElement("input");
-//   textbox.setAttribute('type', 'text');
-//   textbox.setAttribute('value', shortUrl);
+// function copyToClipboard(element) {
+//   vartemp = document.getElementsByTagName('body').append(temp)
+//   temp.val((element).text()).select()
+//   document.execCommand("copy")
+//   temp.remove();
 // }
+
+function replaceWithP(shortUrl) {
+  var textbox = document.createElement("input");
+  textbox.setAttribute('type', 'text');
+  textbox.setAttribute('value', shortUrl);
+}
 
 // function updateClipboard(newClip) {
 //   console.log('Clip: ' + newClip);
