@@ -12,7 +12,7 @@ var onBtnClick = function (t, opts) {
     return t.popup({
       title: "Flock Link",
       items: [{
-        text: textbox
+        text: t.safe(textbox.value)
       }]
     });
   }).catch(error => console.log(error));
