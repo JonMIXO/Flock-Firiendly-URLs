@@ -23,20 +23,19 @@ var onBtnClick = function (t, opts) {
     return t.popup({
       title: "Flock Link",
       url: './index.html',
-      callback: createInput(shortUrl)
+      callback: function (t, opts, shortUrl) {
+        console.log(shortUrl + ' On Popup')
+        var textbox = document.querySelector(".ffurl");
+        var ptag = document.querySelector(".sUrl");
+        ptag.innerHTML += shortUrl;
+        console.log(textbox);
+        textbox.setAttribute('value', shortUrl.toString());
+        console.log(textbox.value);
+      }
     });
   }).catch(error => console.log(error));
 };
 
-function createInput(shortUrl) {
-  console.log(shortUrl + ' On Popup')
-  var textbox = document.querySelector(".ffurl");
-  var ptag = document.querySelector(".sUrl");
-  ptag.innerHTML += shortUrl;
-  console.log(textbox);
-  textbox.setAttribute('value', shortUrl.toString());
-  console.log(textbox.value);
-}
 window.addEventListener('load', (event) => {
   function copyToClip() {
     var copyText = document.querySelector(".ffurl");
