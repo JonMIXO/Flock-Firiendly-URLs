@@ -6,18 +6,15 @@ var onBtnClick = function (t, opts) {
     var parsedURL = JSON.parse(str);
     const url = new URL(parsedURL.url);
     var shortUrl = "https://a.tlkt.uk" + url.pathname
-
+    // var pUrl = document.createElement("p");
+    // pUrl.innerHTML += shortUrl;
+    // var el = document.querySelector('.selected a');
+    // document.querySelector('.selected').replaceChild(el, pUrl)
     console.log(pUrl)
     return t.popup({
       title: "Flock Link",
       items: [{
-        text: shortUrl,
-        callback: function (t, opts) {
-          var pUrl = document.createElement("p");
-          pUrl.innerHTML += shortUrl;
-          var el = document.querySelector('.selected a');
-          document.querySelector('.selected').replaceChild(el, pUrl)
-        }
+        text: t.safe(shortUrl)
       }]
     });
   }).catch(error => console.log(error));
