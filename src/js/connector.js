@@ -11,7 +11,7 @@ var onBtnClick = function (t, opts) {
     return t.popup({
       title: "Flock Link",
       items: [{
-        text: 'ShortURL'
+        text: textbox.value
       }]
     });
   }).catch(error => console.log(error));
