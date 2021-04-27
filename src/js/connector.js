@@ -31,15 +31,18 @@ var onBtnClick = function (t, opts) {
 function createInput(shortUrl) {
   console.log(shortUrl + ' On Popup')
   var textbox = document.querySelector(".ffurl");
+  var ptag = document.querySelector(".sUrl");
+  ptag.innerHTML += shortUrl;
   console.log(textbox);
   textbox.setAttribute('value', shortUrl.toString());
   console.log(textbox.value);
 }
-
-function copyToClip() {
-  var copyText = document.querySelector(".ffurl");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-}
-document.querySelector(".ffurl").addEventListener("click", copyToClip);
+window.addEventListener('load', (event) => {
+  function copyToClip() {
+    var copyText = document.querySelector(".ffurl");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+  }
+  document.querySelector(".ffurl").addEventListener("click", copyToClip);
+});
