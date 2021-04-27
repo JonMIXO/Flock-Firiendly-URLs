@@ -37,5 +37,3 @@ function copyToClip() {
   copyText.setSelectionRange(0, 99999);
   document.execCommand("copy");
 }
-
-document.querySelector("[title='Flock Link']").addEventListener("click", copyToClip)
