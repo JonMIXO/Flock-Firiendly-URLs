@@ -35,11 +35,11 @@ function createInput(shortUrl) {
   textbox.setAttribute('value', shortUrl.toString());
   console.log(textbox.value);
 }
-window.addEventListener('load', (event) => {
-  function copyToClip() {
-    var copyText = document.querySelector(".ffurl");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
-    document.execCommand("copy");
-  }
-});
+
+function copyToClip() {
+  var copyText = document.querySelector(".ffurl");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+}
+document.querySelector(".ffurl").addEventListener("click", copyToClip);
