@@ -19,12 +19,15 @@ var onBtnClick = function (t, opts) {
     var parsedURL = JSON.parse(str);
     const url = new URL(parsedURL.url);
     var shortUrl = "https://a.tlkt.uk" + url.pathname
-    var textbox = document.querySelector(".ffurl");
-    textbox.setAttribute('value', shortUrl);
+
     //copyToClip();
     return t.popup({
       title: "Flock Link",
-      url: './index.html'
+      url: './index.html',
+      callback: function (t, opts) {
+        var textbox = document.querySelector(".ffurl");
+        textbox.setAttribute('value', shortUrl);
+      }
     });
   }).catch(error => console.log(error));
 };
