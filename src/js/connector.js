@@ -9,7 +9,7 @@ var onBtnClick = function (t, opts) {
     return t.popup({
       title: "Flock Link",
       items: [{
-        text: replaceWithP(shortUrl)
+        text: replaceWithTB(shortUrl).value
       }]
     });
   }).catch(error => console.log(error));
@@ -22,10 +22,11 @@ var onBtnClick = function (t, opts) {
 //   temp.remove();
 // }
 
-function replaceWithP(shortUrl) {
+function replaceWithTB(shortUrl) {
   var textbox = document.createElement("input");
   textbox.setAttribute('type', 'text');
   textbox.setAttribute('value', shortUrl);
+  return textbox;
 }
 
 // function updateClipboard(newClip) {
