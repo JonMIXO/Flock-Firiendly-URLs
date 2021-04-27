@@ -6,17 +6,29 @@ var onBtnClick = function (t, opts) {
     var parsedURL = JSON.parse(str);
     const url = new URL(parsedURL.url);
     var shortUrl = "https://a.tlkt.uk" + url.pathname
-    var textbox = document.createElement("textarea");
-    textbox.value = shortUrl;
-    // updateClipboard(shortUrl);
+    var pUrl = document.createElement("p");
+    pUrl.innerHTML += shortUrl;
     return t.popup({
       title: "Flock Link",
       items: [{
-        text: t.safe(textbox.value)
+        callback: function (t, opts) {
+          var el = document.querySelector('.selected a');
+          document.querySelector('.selected').replaceChild(el, pUrl)
+        }
       }]
     });
   }).catch(error => console.log(error));
 };
+
+// function copyToClipboard(element) {
+//   vartemp = ("<input>").document.getElementsByTagName('body').append(temp).temp.val((element).text()).select().document.execCommand("copy").temp.remove();
+// }
+
+// function replaceWithP () {
+//   var textbox = document.createElement("input");
+//   textbox.setAttribute('type', 'text');
+//   textbox.setAttribute('value', shortUrl);
+// }
 
 // function updateClipboard(newClip) {
 //   console.log('Clip: ' + newClip);
