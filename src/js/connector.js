@@ -31,8 +31,6 @@ var onBtnClick = function (t, opts) {
 function createInput(shortUrl) {
   console.log(shortUrl + ' On Popup')
   var textbox = document.querySelector(".ffurl");
-  var ptag = document.querySelector(".sUrl");
-  ptag.innerHTML += shortUrl;
   console.log(textbox);
   textbox.setAttribute('value', shortUrl.toString());
   console.log(textbox.value);
