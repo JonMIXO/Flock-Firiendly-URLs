@@ -6,25 +6,23 @@ var onBtnClick = function (t, opts) {
     var parsedURL = JSON.parse(str);
     const url = new URL(parsedURL.url);
     var shortUrl = "https://a.tlkt.uk" + url.pathname
-    var textbox = document.createElement("input");
-    textbox.setAttribute('type', 'text');
+    var textbox = document.querySelector(".ffurl");
     textbox.setAttribute('value', shortUrl);
     return t.popup({
       title: "Flock Link",
       items: [{
-        text: 'ShortURL',
-        callback: replaceWithTB(t, textbox)
+        text: 'ShortURL'
       }]
     });
   }).catch(error => console.log(error));
 };
 
-function replaceWithTB(t, textbox) {
-  console.log('reached func');
-  var popup = t.popup.querySelector('.selected')
-  console.log(popup);
-  popup.appendChild(textbox);
-}
+// function replaceWithTB(t, textbox) {
+//   console.log('reached func');
+//   var popup = t.popup('.selected')
+//   console.log(popup);
+//   popup.appendChild(textbox);
+// }
 
 window.TrelloPowerUp.initialize({
   'card-buttons': function (t, opts) {
