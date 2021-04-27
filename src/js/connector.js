@@ -11,14 +11,14 @@ var onBtnClick = function (t, opts) {
       items: [{
         text: 'ShortURL',
         callback: function (t, opts) {
-          replaceWithTB()
+          replaceWithTB(shortUrl)
         }
       }]
     });
   }).catch(error => console.log(error));
 };
 
-function replaceWithTB() {
+function replaceWithTB(shortUrl) {
   console.log('reached func');
   var textbox = document.createElement("input");
   textbox.setAttribute('type', 'text');
