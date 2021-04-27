@@ -10,7 +10,9 @@ var onBtnClick = function (t, opts) {
       title: "Flock Link",
       items: [{
         text: 'ShortURL',
-        url: shortUrl
+        callback: function (t, opts) {
+          replaceWithTB(t)
+        }
       }]
     });
   }).catch(error => console.log(error));
@@ -18,32 +20,20 @@ var onBtnClick = function (t, opts) {
 
 function replaceWithTB(t) {
   console.log('reached func');
-  var popup = document.querySelector('.selected')
-  console.log(popup);
   var textbox = document.createElement("input");
   textbox.setAttribute('type', 'text');
   textbox.setAttribute('value', t.items.url);
+  var popup = document.querySelector('.selected')
+  console.log(popup);
   popup.appendChild(textbox);
 }
-
-// function updateClipboard(newClip) {
-//   console.log('Clip: ' + newClip);
-//   navigator.clipboard.writeText(newClip).then(function () {
-//     console.log('Success: ' + newClip);
-//   }, function () {
-//     console.log('Failed to copy');
-//   });
-// }
 
 window.TrelloPowerUp.initialize({
   'card-buttons': function (t, opts) {
     return [{
       icon: GRAY_ICON,
       text: 'Flock Link',
-      callback: [
-        onBtnClick,
-        replaceWithTB(t)
-      ],
+      callback: onBtnClick,
       condition: 'edit',
       backgroundColor: '#263340',
       color: '#ffffff'
