@@ -11,18 +11,18 @@ var onBtnClick = function (t, opts) {
       items: [{
         text: 'ShortURL',
         callback: function (t, opts) {
-          replaceWithTB(t)
+          replaceWithTB()
         }
       }]
     });
   }).catch(error => console.log(error));
 };
 
-function replaceWithTB(t) {
+function replaceWithTB() {
   console.log('reached func');
   var textbox = document.createElement("input");
   textbox.setAttribute('type', 'text');
-  textbox.setAttribute('value', t.items.url);
+  textbox.setAttribute('value', shortUrl);
   var popup = document.querySelector('.selected')
   console.log(popup);
   popup.appendChild(textbox);
