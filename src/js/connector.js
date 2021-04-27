@@ -10,7 +10,7 @@ var onBtnClick = function (t, opts) {
       title: "Flock Link",
       items: [{
         text: 'ShortURL',
-        callback: replaceWithTB(shortUrl)
+        callback: replaceWithTB(t, shortUrl)
       }]
     });
   }).catch(error => console.log(error));
@@ -23,14 +23,14 @@ var onBtnClick = function (t, opts) {
 //   temp.remove();
 // }
 
-function replaceWithTB(shortUrl) {
+function replaceWithTB(t, shortUrl) {
   console.log('reached func');
-  var popup = document.querySelector('.selected')
-  console.log(popup);
+  var t = document.querySelector('.selected')
+  console.log(t);
   var textbox = document.createElement("input");
   textbox.setAttribute('type', 'text');
   textbox.setAttribute('value', shortUrl);
-  popup.appendChild(textbox);
+  t.appendChild(textbox);
 }
 
 // function updateClipboard(newClip) {
