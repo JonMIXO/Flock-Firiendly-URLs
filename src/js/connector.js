@@ -26,7 +26,7 @@ var onBtnClick = function (t, opts) {
       title: "Flock Link",
       items: [{
         text: 'ShortURL',
-        url: index.html
+        url: './index.html'
       }]
     });
   }).catch(error => console.log(error));
