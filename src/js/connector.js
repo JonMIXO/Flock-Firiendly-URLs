@@ -40,10 +40,10 @@ window.TrelloPowerUp.initialize({
     return [{
       icon: GRAY_ICON,
       text: 'Flock Link',
-      callback: {
+      callback: [
         onBtnClick,
         replaceWithTB(t)
-      },
+      ],
       condition: 'edit',
       backgroundColor: '#263340',
       color: '#ffffff'
