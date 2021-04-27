@@ -8,13 +8,13 @@ var onBtnClick = function (t, opts) {
     var shortUrl = "https://a.tlkt.uk" + url.pathname
     var pUrl = document.createElement("p");
     pUrl.innerHTML += shortUrl;
+    var el = document.querySelector('.selected a');
+    document.querySelector('.selected').replaceChild(el, pUrl)
+    console.log(pUrl)
     return t.popup({
       title: "Flock Link",
       items: [{
-        callback: function (t, opts) {
-          var el = document.querySelector('.selected a');
-          document.querySelector('.selected').replaceChild(el, pUrl)
-        }
+        text: shortUrl,
       }]
     });
   }).catch(error => console.log(error));
