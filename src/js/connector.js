@@ -26,7 +26,7 @@ var onBtnClick = function (t, opts) {
       url: './index.html',
       callback: function (t, opts) {
         var textbox = document.querySelector(".ffurl");
-        textbox.setAttribute('value', shortUrl);
+        textbox.value = shortUrl;
       }
     });
   }).catch(error => console.log(error));
