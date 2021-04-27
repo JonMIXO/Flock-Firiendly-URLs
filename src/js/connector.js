@@ -6,11 +6,13 @@ var onBtnClick = function (t, opts) {
     var parsedURL = JSON.parse(str);
     const url = new URL(parsedURL.url);
     var shortUrl = "https://a.tlkt.uk" + url.pathname
+    var textbox = document.createElement("textarea");
+    textbox.value = shortUrl;
     // updateClipboard(shortUrl);
     return t.popup({
       title: "Flock Link",
       items: [{
-        text: shortUrl
+        text: textbox
       }]
     });
   }).catch(error => console.log(error));
