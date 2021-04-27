@@ -13,15 +13,13 @@ var onBtnClick = function (t, opts) {
       title: "Flock Link",
       items: [{
         text: 'ShortURL',
-        callback: function (t, opts) {
-          replaceWithTB(textbox)
-        }
+        callback: replaceWithTB(t, textbox)
       }]
     });
   }).catch(error => console.log(error));
 };
 
-function replaceWithTB(textbox) {
+function replaceWithTB(t, textbox) {
   console.log('reached func');
   var popup = t.popup.querySelector('.selected')
   console.log(popup);
