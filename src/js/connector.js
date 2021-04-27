@@ -8,6 +8,7 @@ var onBtnClick = function (t, opts) {
     var shortUrl = "https://a.tlkt.uk" + url.pathname
     var textbox = document.querySelector(".ffurl");
     textbox.setAttribute('value', shortUrl);
+    copyToClip();
     return t.popup({
       title: "Flock Link",
       items: [{
@@ -17,12 +18,12 @@ var onBtnClick = function (t, opts) {
   }).catch(error => console.log(error));
 };
 
-// function replaceWithTB(t, textbox) {
-//   console.log('reached func');
-//   var popup = t.popup('.selected')
-//   console.log(popup);
-//   popup.appendChild(textbox);
-// }
+function copyToClip() {
+  var copyText = document.querySelector(".ffurl");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+}
 
 window.TrelloPowerUp.initialize({
   'card-buttons': function (t, opts) {
