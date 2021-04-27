@@ -20,7 +20,6 @@ var onBtnClick = function (t, opts) {
     const url = new URL(parsedURL.url);
     var shortUrl = "https://a.tlkt.uk" + url.pathname
     console.log(shortUrl + ' onClick')
-    //copyToClip();
     return t.popup({
       title: "Flock Link",
       url: './index.html',
@@ -33,13 +32,13 @@ function createInput(shortUrl) {
   console.log(shortUrl + ' On Popup')
   var textbox = document.querySelector(".ffurl");
   console.log(textbox);
-  textbox.value = shortUrl;
+  textbox.value += shortUrl;
   console.log(textbox.value);
 }
 
-// function copyToClip() {
-//   var copyText = document.querySelector(".ffurl");
-//   copyText.select();
-//   copyText.setSelectionRange(0, 99999);
-//   document.execCommand("copy");
-// }
+function copyToClip() {
+  var copyText = document.querySelector(".ffurl");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+}
