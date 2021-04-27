@@ -10,27 +10,20 @@ var onBtnClick = function (t, opts) {
       title: "Flock Link",
       items: [{
         text: 'ShortURL',
-        callback: replaceWithTB(t, shortUrl)
+        url: shortUrl
       }]
     });
   }).catch(error => console.log(error));
 };
 
-// function copyToClipboard(element) {
-//   vartemp = document.getElementsByTagName('body').append(temp)
-//   temp.val((element).text()).select()
-//   document.execCommand("copy")
-//   temp.remove();
-// }
-
-function replaceWithTB(t, shortUrl) {
+function replaceWithTB(t) {
   console.log('reached func');
-  var t = document.querySelector('.selected')
-  console.log(t);
+  var popup = document.querySelector('.selected')
+  console.log(popup);
   var textbox = document.createElement("input");
   textbox.setAttribute('type', 'text');
-  textbox.setAttribute('value', shortUrl);
-  t.appendChild(textbox);
+  textbox.setAttribute('value', t.items.url);
+  popup.appendChild(textbox);
 }
 
 // function updateClipboard(newClip) {
@@ -47,15 +40,13 @@ window.TrelloPowerUp.initialize({
     return [{
       icon: GRAY_ICON,
       text: 'Flock Link',
-      callback: onBtnClick,
+      callback: {
+        onBtnClick,
+        replaceWithTB(t)
+      },
       condition: 'edit',
       backgroundColor: '#263340',
       color: '#ffffff'
-    }, () => {
-      console.log('reached');
-      var btn = document.querySelector('.button-link[title="Flock Link"]')
-      btn.style.backgroundColor = '#263340';
-      btn.style.color = '#ffffff';
-    }];
+    }]
   }
 });
