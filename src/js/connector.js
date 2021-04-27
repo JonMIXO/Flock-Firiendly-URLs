@@ -24,13 +24,15 @@ var onBtnClick = function (t, opts) {
     return t.popup({
       title: "Flock Link",
       url: './index.html',
-      callback: function (t, opts) {
-        var textbox = document.querySelector(".ffurl");
-        textbox.value = shortUrl;
-      }
+      callback: createInput(shortUrl)
     });
   }).catch(error => console.log(error));
 };
+
+function createInput(shortUrl) {
+  var textbox = document.querySelector(".ffurl");
+  textbox.value = shortUrl;
+}
 
 // function copyToClip() {
 //   var copyText = document.querySelector(".ffurl");
