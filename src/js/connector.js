@@ -24,10 +24,7 @@ var onBtnClick = function (t, opts) {
     //copyToClip();
     return t.popup({
       title: "Flock Link",
-      items: [{
-        text: 'ShortURL',
-        url: './index.html'
-      }]
+      url: './index.html'
     });
   }).catch(error => console.log(error));
 };
