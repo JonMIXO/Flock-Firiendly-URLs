@@ -19,7 +19,7 @@ var onBtnClick = function (t, opts) {
     var parsedURL = JSON.parse(str);
     const url = new URL(parsedURL.url);
     var shortUrl = "https://a.tlkt.uk" + url.pathname
-
+    console.log(shortUrl + ' onClick')
     //copyToClip();
     return t.popup({
       title: "Flock Link",
@@ -30,8 +30,11 @@ var onBtnClick = function (t, opts) {
 };
 
 function createInput(shortUrl) {
+  console.log(shortUrl + ' On Popup')
   var textbox = document.querySelector(".ffurl");
+  console.log(textbox);
   textbox.value = shortUrl;
+  console.log(textbox.value);
 }
 
 // function copyToClip() {
