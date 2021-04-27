@@ -25,7 +25,7 @@ var onBtnClick = function (t, opts) {
     return t.popup({
       title: "Flock Link",
       items: [{
-        text: ShortURL,
+        text: 'ShortURL',
         url: index.html
       }]
     });
