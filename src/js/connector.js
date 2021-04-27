@@ -11,21 +11,15 @@ var onBtnClick = function (t, opts) {
       title: "Flock Link",
       items: [{
         text: t.safe(shortUrl),
-        callback: function (t, opts) {
-          var pUrl = document.createElement("p");
-          pUrl.innerHTML += shortUrl;
-          var el = document.querySelector('.selected a');
-          document.querySelector('.selected').replaceChild(el, pUrl)
-          console.log(pUrl)
-        }
+        callback: copyToClipboard(shortUrl)
       }]
     });
   }).catch(error => console.log(error));
 };
 
-// function copyToClipboard(element) {
-//   vartemp = ("<input>").document.getElementsByTagName('body').append(temp).temp.val((element).text()).select().document.execCommand("copy").temp.remove();
-// }
+function copyToClipboard(element) {
+  vartemp = ("<input>").document.getElementsByTagName('body').append(temp).temp.val((element).text()).select().document.execCommand("copy").temp.remove();
+}
 
 // function replaceWithP () {
 //   var textbox = document.createElement("input");
